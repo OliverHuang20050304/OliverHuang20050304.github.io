@@ -98,7 +98,7 @@ export const projects = [
     id: "bible-reader",
     title: "Pure Bible Reader",
     subtitle: "Full-Stack Web App · PWA",
-    period: "2025",
+    period: "2026",
     status: "Completed",
     statusColor: "green",
     description:
