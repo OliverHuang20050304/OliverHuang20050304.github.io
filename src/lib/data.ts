@@ -51,6 +51,8 @@ export const projects = [
     ],
     tags: ["Python", "Gurobi", "MIP", "Operations Research", "Optimization"],
     icon: "⚙️",
+    github: null,
+    demo: null,
   },
   {
     id: "ubike",
@@ -69,6 +71,8 @@ export const projects = [
     ],
     tags: ["Python", "Gurobi", "KMeans", "Greedy Algorithm", "Data Pipeline"],
     icon: "🚲",
+    github: null,
+    demo: null,
   },
   {
     id: "hci-research",
@@ -87,6 +91,28 @@ export const projects = [
     ],
     tags: ["Python", "Statistical Analysis", "Regression", "HCI", "Research"],
     icon: "🗺️",
+    github: null,
+    demo: null,
+  },
+  {
+    id: "bible-reader",
+    title: "Pure Bible Reader",
+    subtitle: "Full-Stack Web App · PWA",
+    period: "2025",
+    status: "Completed",
+    statusColor: "green",
+    description:
+      "A clean, mobile-friendly Bible reader supporting Traditional Chinese (CUV) and English (KJV), built as a Progressive Web App installable on iOS and Android.",
+    bullets: [
+      "Built a full-featured Bible reader supporting Traditional Chinese (CUV) and English (KJV) translations with complete 66-book navigation and chapter switching.",
+      "Implemented font scaling, dark/light mode, and 6 colour themes for a comfortable and personalised reading experience.",
+      "Added keyword search with jump-to-chapter functionality and auto-saves reading progress via localStorage.",
+      "Deployed as a PWA — users can install it on iPhone or Android as a native-like app directly from the browser.",
+    ],
+    tags: ["JavaScript", "HTML", "CSS", "PWA", "localStorage"],
+    icon: "📖",
+    github: "https://github.com/OliverHuang20050304/bible-web-app",
+    demo: "https://oliverhuang20050304.github.io/bible-web-app/",
   },
 ];
 

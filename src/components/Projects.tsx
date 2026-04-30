@@ -81,16 +81,44 @@ export default function Projects() {
                 ))}
               </ul>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-500/15 text-indigo-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              {/* Tags + Links */}
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-500/15 text-indigo-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {(project.github || project.demo) && (
+                  <div className="flex items-center gap-3">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
+                      >
+                        <ExternalLink size={13} />
+                        GitHub
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 hover:bg-indigo-500/20 transition-colors"
+                      >
+                        <ExternalLink size={13} />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* Hover line */}
