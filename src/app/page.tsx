@@ -8,24 +8,19 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative min-h-screen">
       <Navbar />
       <Hero />
-      <div className="relative">
-        {/* Divider */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      <div className="relative border-t border-stone-200/80">
         <About />
       </div>
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent" />
+      <div className="relative border-t border-stone-200/80">
         <Projects />
       </div>
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      <div className="relative border-t border-stone-200/80">
         <Skills />
       </div>
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent" />
+      <div className="relative border-t border-stone-200/80">
         <Contact />
       </div>
       <Footer />

@@ -2,12 +2,12 @@ import { personalInfo } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="py-8 px-6 border-t border-white/5">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-gray-600 text-sm">
-          © {new Date().getFullYear()} {personalInfo.name}. Built with Next.js & Tailwind CSS.
+    <footer className="border-t border-stone-200/90 px-6 py-10">
+      <div className="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 md:flex-row">
+        <p className="text-center text-sm text-stone-500 md:text-left">
+          © {new Date().getFullYear()} {personalInfo.name}. Next.js & Tailwind.
         </p>
-        <p className="text-gray-700 text-xs">
+        <p className="text-center text-xs text-stone-400 md:text-right">
           {personalInfo.university} · Information Management
         </p>
       </div>

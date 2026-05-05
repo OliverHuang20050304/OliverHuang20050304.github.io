@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { personalInfo } from "@/lib/data";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -22,56 +23,56 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
         isScrolled
-          ? "bg-[#0a0a0f]/90 backdrop-blur-md border-b border-white/5"
+          ? "border-b border-stone-200/90 bg-[#f6f3ec]/95 backdrop-blur-sm"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
         <a
           href="#"
-          className="text-lg font-bold gradient-text tracking-tight"
+          className="font-display text-lg tracking-tight text-stone-900"
         >
           Oliver Huang
         </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+              className="text-sm text-stone-600 transition-colors hover:text-stone-900"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="mailto:oliver20050304@gmail.com"
-            className="text-sm px-4 py-2 rounded-full border border-indigo-500/50 text-indigo-300 hover:bg-indigo-500/10 transition-all duration-200"
+            href={`mailto:${personalInfo.email}`}
+            className="border border-stone-300 px-3 py-1.5 text-sm text-stone-800 transition-colors hover:border-stone-400 hover:bg-white/60"
           >
-            Get in touch
+            Contact
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-400 hover:text-white"
+          type="button"
+          className="text-stone-600 hover:text-stone-900 md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-expanded={isMenuOpen}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#0d0d1a]/95 backdrop-blur-md border-t border-white/5 px-6 py-4 flex flex-col gap-4">
+        <div className="flex flex-col gap-4 border-t border-stone-200/90 bg-[#faf8f4] px-6 py-4 md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-stone-700 hover:text-stone-900"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.label}

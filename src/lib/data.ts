@@ -105,7 +105,7 @@ export const projects = [
       "A clean, mobile-friendly Bible reader supporting Traditional Chinese (CUV) and English (KJV), built as a Progressive Web App installable on iOS and Android.",
     bullets: [
       "Built a full-featured Bible reader supporting Traditional Chinese (CUV) and English (KJV) translations with complete 66-book navigation and chapter switching.",
-      "Implemented font scaling, dark/light mode, and 6 colour themes for a comfortable and personalised reading experience.",
+      "Implemented font scaling and six colour themes for a comfortable and personalised reading experience.",
       "Added keyword search with jump-to-chapter functionality and auto-saves reading progress via localStorage.",
       "Deployed as a PWA — users can install it on iPhone or Android as a native-like app directly from the browser.",
     ],

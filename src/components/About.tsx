@@ -5,102 +5,97 @@ export default function About() {
   const edu = education[0];
 
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-16">
-          <p className="text-indigo-400 text-sm font-medium tracking-widest uppercase mb-3">
-            About Me
+    <section id="about" className="px-6 py-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-14">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-stone-500">
+            About
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Education & Background
+          <h2 className="font-display text-3xl font-normal text-stone-900 md:text-4xl">
+            Education & background
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left: Intro */}
-          <div className="space-y-6">
-            <p className="text-gray-400 text-lg leading-relaxed">
+        <div className="grid items-start gap-14 md:grid-cols-2">
+          <div className="space-y-5">
+            <p className="leading-relaxed text-stone-600">
               I&apos;m a junior student at{" "}
-              <span className="text-indigo-300 font-medium">
-                National Taiwan University
-              </span>
-              , majoring in Information Management. My academic journey has been
+              <span className="text-stone-900">National Taiwan University</span>,
+              majoring in Information Management. My academic journey has been
               shaped by a deep curiosity for solving complex optimization problems
               and deriving insights from data.
             </p>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="leading-relaxed text-stone-600">
               With hands-on experience in{" "}
-              <span className="text-purple-300">Operations Research</span>,{" "}
-              <span className="text-purple-300">Mathematical Modeling</span>, and{" "}
-              <span className="text-purple-300">Data Science</span>, I bridge the
+              <span className="text-stone-800">Operations Research</span>,{" "}
+              <span className="text-stone-800">Mathematical Modeling</span>, and{" "}
+              <span className="text-stone-800">Data Science</span>, I bridge the
               gap between theoretical rigor and practical engineering solutions.
             </p>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="leading-relaxed text-stone-600">
               I thrive in collaborative, international environments and am
               passionate about applying algorithmic thinking to real-world
               challenges — from supply chain optimization to human-computer
               interaction research.
             </p>
 
-            {/* Quick stats */}
-            <div className="grid grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-3 gap-3 pt-4">
               {[
                 { value: "3.98", label: "Junior GPA" },
-                { value: "940", label: "TOEIC Score" },
-                { value: "103", label: "TOEFL Score" },
+                { value: "940", label: "TOEIC" },
+                { value: "103", label: "TOEFL" },
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="text-center p-4 rounded-xl bg-white/5 border border-white/5"
+                  className="border border-stone-200 bg-white px-3 py-4 text-center paper-shadow"
                 >
-                  <div className="text-2xl font-bold gradient-text">
+                  <div className="font-display text-2xl text-stone-900">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+                  <div className="mt-1 text-xs text-stone-500">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Education Card */}
-          <div className="relative">
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-indigo-950/50 to-purple-950/30 border border-indigo-500/20 glow-border">
-              {/* University Header */}
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20">
-                  <GraduationCap size={24} className="text-indigo-400" />
+          <div>
+            <div className="border border-stone-200 bg-white p-6 paper-shadow">
+              <div className="mb-6 flex items-start gap-4">
+                <div className="border border-stone-200 bg-stone-50 p-2.5">
+                  <GraduationCap
+                    size={22}
+                    className="text-stone-700"
+                    strokeWidth={1.5}
+                  />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-lg">
-                    {edu.school}
-                  </h3>
-                  <p className="text-indigo-300 text-sm">{edu.degree}</p>
-                  <p className="text-gray-500 text-xs mt-1">{edu.period}</p>
+                  <h3 className="font-medium text-stone-900">{edu.school}</h3>
+                  <p className="text-sm text-stone-600">{edu.degree}</p>
+                  <p className="mt-1 text-xs text-stone-500">{edu.period}</p>
                 </div>
               </div>
 
-              {/* GPA Badge */}
-              <div className="flex items-center gap-2 mb-5 p-3 rounded-lg bg-green-500/5 border border-green-500/15">
-                <Award size={16} className="text-green-400 flex-shrink-0" />
-                <p className="text-green-300 text-sm font-medium">
-                  GPA: {edu.gpa}
-                </p>
+              <div className="mb-5 flex items-center gap-2 border border-stone-100 bg-stone-50 px-3 py-2.5">
+                <Award
+                  size={16}
+                  className="shrink-0 text-stone-600"
+                  strokeWidth={1.5}
+                />
+                <p className="text-sm text-stone-800">GPA: {edu.gpa}</p>
               </div>
 
-              {/* Coursework */}
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <BookOpen size={14} className="text-gray-500" />
-                  <p className="text-gray-500 text-xs uppercase tracking-widest">
-                    Relevant Coursework
+                <div className="mb-3 flex items-center gap-2">
+                  <BookOpen size={14} className="text-stone-500" strokeWidth={1.5} />
+                  <p className="text-xs uppercase tracking-wider text-stone-500">
+                    Coursework
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {edu.courses.map((course) => (
                     <span
                       key={course}
-                      className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/5 text-gray-400"
+                      className="border border-stone-200 bg-stone-50/80 px-2.5 py-1 text-xs text-stone-600"
                     >
                       {course}
                     </span>
@@ -108,10 +103,9 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Highlight */}
-              <div className="mt-5 pt-5 border-t border-white/5">
-                <p className="text-xs text-yellow-400/80">
-                  ⭐ {edu.highlight}
+              <div className="mt-5 border-t border-stone-100 pt-5">
+                <p className="text-xs leading-relaxed text-stone-600">
+                  {edu.highlight}
                 </p>
               </div>
             </div>

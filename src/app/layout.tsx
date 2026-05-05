@@ -1,11 +1,20 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+});
+
+export const viewport: Viewport = {
+  themeColor: "#f6f3ec",
+};
 
 export const metadata: Metadata = {
   title: "Yuan-Hsiang (Oliver) Huang | NTU Information Management",
@@ -27,7 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${newsreader.variable} font-sans antialiased`}
+      >
         {children}
       </body>
     </html>

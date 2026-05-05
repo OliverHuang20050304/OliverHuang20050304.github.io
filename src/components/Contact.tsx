@@ -8,81 +8,72 @@ const links = [
     label: "Email",
     value: personalInfo.email,
     href: `mailto:${personalInfo.email}`,
-    color: "from-indigo-500/20 to-purple-500/20",
-    border: "border-indigo-500/20",
-    textColor: "text-indigo-300",
   },
   {
     icon: GitHubIcon,
     label: "GitHub",
     value: "github.com/oliver20050304",
     href: personalInfo.github,
-    color: "from-gray-500/10 to-gray-600/10",
-    border: "border-white/10",
-    textColor: "text-gray-300",
   },
   {
     icon: MapPin,
     label: "Location",
     value: personalInfo.location,
     href: null,
-    color: "from-rose-500/10 to-orange-500/10",
-    border: "border-rose-500/10",
-    textColor: "text-rose-300",
   },
-];
+] as const;
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left: Text */}
+    <section id="contact" className="px-6 py-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="grid items-start gap-14 md:grid-cols-2">
           <div>
-            <p className="text-indigo-400 text-sm font-medium tracking-widest uppercase mb-3">
+            <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-stone-500">
               Contact
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Let&apos;s Connect
+            <h2 className="font-display mb-6 text-3xl font-normal text-stone-900 md:text-4xl">
+              Let&apos;s connect
             </h2>
-            <p className="text-gray-400 leading-relaxed mb-6">
-              I&apos;m currently open to internship opportunities, research
-              collaborations, and interesting conversations about optimization,
-              data science, or anything in between.
+            <p className="mb-4 leading-relaxed text-stone-600">
+              I&apos;m open to internship opportunities, research collaborations,
+              and conversations about optimization, data science, or related work.
             </p>
-            <p className="text-gray-500 text-sm">
-              Whether you have a question, a project idea, or just want to say
-              hi — feel free to reach out. I&apos;ll do my best to get back to you
-              promptly!
+            <p className="text-sm leading-relaxed text-stone-500">
+              Questions, project ideas, or a quick hello — I&apos;ll reply when I
+              can.
             </p>
 
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-2 mt-8 px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
+              className="mt-8 inline-flex items-center gap-2 border border-stone-800 bg-stone-900 px-6 py-2.5 text-sm text-[#f6f3ec] transition-colors hover:bg-stone-800"
             >
-              Say Hello
-              <ArrowRight size={16} />
+              Say hello
+              <ArrowRight size={16} strokeWidth={1.5} />
             </a>
           </div>
 
-          {/* Right: Contact Cards */}
-          <div className="space-y-4">
-            {links.map(({ icon: Icon, label, value, href, color, border, textColor }) => {
-              const content = (
-                <div
-                  className={`flex items-center gap-4 p-5 rounded-xl bg-gradient-to-br ${color} border ${border} hover:scale-[1.02] transition-transform duration-200 ${href ? "cursor-pointer" : ""}`}
-                >
-                  <div className="p-3 rounded-xl bg-white/5">
-                    <Icon size={20} className={textColor} />
+          <div className="space-y-3">
+            {links.map(({ icon: Icon, label, value, href }) => {
+              const row = (
+                <div className="flex items-center gap-4 border border-stone-200 bg-white p-4 paper-shadow transition-colors hover:border-stone-300">
+                  <div className="border border-stone-200 bg-stone-50 p-2.5">
+                    <Icon size={20} className="text-stone-700" />
                   </div>
-                  <div>
-                    <p className="text-gray-500 text-xs uppercase tracking-widest mb-0.5">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs uppercase tracking-wider text-stone-500">
                       {label}
                     </p>
-                    <p className={`text-sm font-medium ${textColor}`}>{value}</p>
+                    <p className="truncate text-sm font-medium text-stone-900">
+                      {value}
+                    </p>
                   </div>
                   {href && (
-                    <ArrowRight size={14} className="ml-auto text-gray-600" />
+                    <ArrowRight
+                      size={14}
+                      className="shrink-0 text-stone-400"
+                      strokeWidth={1.5}
+                    />
                   )}
                 </div>
               );
@@ -92,12 +83,14 @@ export default function Contact() {
                   key={label}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  rel={
+                    href.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
                 >
-                  {content}
+                  {row}
                 </a>
               ) : (
-                <div key={label}>{content}</div>
+                <div key={label}>{row}</div>
               );
             })}
           </div>

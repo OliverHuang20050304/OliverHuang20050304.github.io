@@ -6,105 +6,79 @@ import { GitHubIcon } from "@/components/GitHubIcon";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
-      {/* Background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(129,140,248,1) 1px, transparent 1px), linear-gradient(90deg, rgba(129,140,248,1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20">
+      <div className="relative z-10 mx-auto max-w-2xl text-center">
+        <p className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-stone-500">
+          Open to internships & research
+        </p>
 
-      {/* Gradient blobs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative z-10 text-center max-w-3xl mx-auto">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm mb-8 animate-fade-in-up">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          Available for internships & research
-        </div>
-
-        {/* Name */}
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <span className="text-white">Hi, I&apos;m </span>
-          <span className="gradient-text">{personalInfo.nickname}</span>
+        <h1 className="font-display mb-3 text-4xl font-normal tracking-tight text-stone-900 md:text-6xl">
+          Hi, I&apos;m{" "}
+          <span className="text-stone-800">{personalInfo.nickname}</span>
         </h1>
 
-        {/* Full name */}
-        <p className="text-gray-400 text-lg mb-2 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          {personalInfo.name}
-        </p>
+        <p className="mb-2 text-stone-600">{personalInfo.name}</p>
 
-        {/* Title */}
-        <p className="text-xl md:text-2xl text-gray-300 font-light mb-6 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+        <p className="mb-6 text-lg font-light text-stone-700 md:text-xl">
           {personalInfo.title} at{" "}
-          <span className="text-indigo-300 font-medium">NTU</span>
+          <span className="font-normal text-stone-900">NTU</span>
         </p>
 
-        {/* Subtitle */}
-        <p className="text-gray-500 text-sm md:text-base tracking-widest uppercase mb-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+        <p className="mb-6 text-xs uppercase tracking-[0.25em] text-stone-500">
           {personalInfo.subtitle}
         </p>
 
-        {/* Bio */}
-        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+        <p className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-stone-600">
           {personalInfo.bio}
         </p>
 
-        {/* Location */}
-        <div className="flex items-center justify-center gap-2 text-gray-500 text-sm mb-10 animate-fade-in-up" style={{ animationDelay: "0.55s" }}>
-          <MapPin size={14} />
+        <div className="mb-10 flex items-center justify-center gap-2 text-sm text-stone-500">
+          <MapPin size={14} strokeWidth={1.5} />
           <span>{personalInfo.location}</span>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+        <div className="flex flex-wrap items-center justify-center gap-3">
           <a
             href="#projects"
-            className="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
+            className="border border-stone-800 bg-stone-900 px-6 py-2.5 text-sm text-[#f6f3ec] transition-colors hover:bg-stone-800"
           >
-            View My Work
+            Work
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
-            className="px-8 py-3 rounded-full border border-white/10 text-gray-300 hover:border-white/30 hover:text-white font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+            className="flex items-center gap-2 border border-stone-300 bg-white/50 px-6 py-2.5 text-sm text-stone-800 transition-colors hover:border-stone-400"
           >
-            <Mail size={16} />
-            Contact Me
+            <Mail size={16} strokeWidth={1.5} />
+            Email
           </a>
         </div>
 
-        {/* Social Links */}
-        <div className="flex items-center justify-center gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
+        <div className="mt-10 flex items-center justify-center gap-6">
           <a
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full text-gray-500 hover:text-white hover:bg-white/5 transition-all duration-200"
+            className="text-stone-500 transition-colors hover:text-stone-900"
             aria-label="GitHub"
           >
             <GitHubIcon size={20} />
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
-            className="p-2 rounded-full text-gray-500 hover:text-white hover:bg-white/5 transition-all duration-200"
+            className="text-stone-500 transition-colors hover:text-stone-900"
             aria-label="Email"
           >
-            <Mail size={20} />
+            <Mail size={20} strokeWidth={1.5} />
           </a>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <a
         href="#about"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-600 hover:text-gray-400 transition-colors animate-float"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-stone-400 transition-colors hover:text-stone-600"
+        aria-label="Scroll to about"
       >
-        <ArrowDown size={20} />
+        <ArrowDown size={20} strokeWidth={1.5} />
       </a>
     </section>
   );

@@ -1,50 +1,34 @@
 import { skills } from "@/lib/data";
 
-const toolIcons: Record<string, string> = {
-  Git: "⎇",
-  GitHub: "🐙",
-  Notion: "📝",
-  Markdown: "📄",
-  HackMD: "✍️",
-  NumPy: "🔢",
-  Pandas: "🐼",
-  Gurobi: "⚡",
-};
-
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-16">
-          <p className="text-indigo-400 text-sm font-medium tracking-widest uppercase mb-3">
+    <section id="skills" className="px-6 py-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-14">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-stone-500">
             Skills
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Technical Toolkit
+          <h2 className="font-display text-3xl font-normal text-stone-900 md:text-4xl">
+            Toolkit
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Column */}
-          <div className="space-y-8">
-            {/* Programming Languages */}
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5">
-              <h3 className="text-gray-400 text-xs font-medium tracking-widest uppercase mb-6">
-                Programming Languages
+        <div className="grid gap-10 md:grid-cols-2">
+          <div className="space-y-10">
+            <div className="border border-stone-200 bg-white p-6 paper-shadow">
+              <h3 className="mb-6 text-xs font-medium uppercase tracking-wider text-stone-500">
+                Programming
               </h3>
               <div className="space-y-5">
                 {skills.programming.map((skill) => (
                   <div key={skill.name}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-white text-sm font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-gray-500 text-xs">{skill.level}%</span>
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="text-sm text-stone-900">{skill.name}</span>
+                      <span className="text-xs text-stone-500">{skill.level}%</span>
                     </div>
-                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div className="h-1 overflow-hidden rounded-full bg-stone-100">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"
+                        className="h-full rounded-full bg-stone-700"
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
@@ -53,22 +37,23 @@ export default function Skills() {
               </div>
             </div>
 
-            {/* Languages */}
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5">
-              <h3 className="text-gray-400 text-xs font-medium tracking-widest uppercase mb-6">
-                Spoken Languages
+            <div className="border border-stone-200 bg-white p-6 paper-shadow">
+              <h3 className="mb-6 text-xs font-medium uppercase tracking-wider text-stone-500">
+                Languages
               </h3>
               <div className="space-y-4">
                 {skills.languages.map((lang) => (
                   <div
                     key={lang.lang}
-                    className="flex items-center justify-between"
+                    className="flex items-start justify-between gap-4"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xl">{lang.flag}</span>
-                      <span className="text-white text-sm">{lang.lang}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg" aria-hidden>
+                        {lang.flag}
+                      </span>
+                      <span className="text-sm text-stone-900">{lang.lang}</span>
                     </div>
-                    <span className="text-gray-500 text-xs text-right max-w-[180px]">
+                    <span className="max-w-[200px] text-right text-xs text-stone-600">
                       {lang.level}
                     </span>
                   </div>
@@ -77,47 +62,41 @@ export default function Skills() {
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="space-y-8">
-            {/* Tools & Platforms */}
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5">
-              <h3 className="text-gray-400 text-xs font-medium tracking-widest uppercase mb-6">
-                Tools & Platforms
+          <div className="space-y-10">
+            <div className="border border-stone-200 bg-white p-6 paper-shadow">
+              <h3 className="mb-6 text-xs font-medium uppercase tracking-wider text-stone-500">
+                Tools & platforms
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {skills.tools.map((tool) => (
-                  <div
+                  <span
                     key={tool}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/5 hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-200"
+                    className="border border-stone-200 bg-stone-50/80 px-3 py-2 text-sm text-stone-700"
                   >
-                    <span className="text-base">{toolIcons[tool] ?? "🔧"}</span>
-                    <span className="text-gray-300 text-sm">{tool}</span>
-                  </div>
+                    {tool}
+                  </span>
                 ))}
               </div>
             </div>
 
-            {/* Python Packages */}
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5">
-              <h3 className="text-gray-400 text-xs font-medium tracking-widest uppercase mb-6">
-                Python Packages
+            <div className="border border-stone-200 bg-white p-6 paper-shadow">
+              <h3 className="mb-6 text-xs font-medium uppercase tracking-wider text-stone-500">
+                Python
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {skills.packages.map((pkg) => (
-                  <div
+                  <span
                     key={pkg}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-500/5 border border-purple-500/15 hover:border-purple-500/30 hover:bg-purple-500/10 transition-all duration-200"
+                    className="border border-stone-200 bg-stone-50/80 px-3 py-2 text-sm text-stone-700"
                   >
-                    <span className="text-base">{toolIcons[pkg] ?? "📦"}</span>
-                    <span className="text-purple-300 text-sm">{pkg}</span>
-                  </div>
+                    {pkg}
+                  </span>
                 ))}
               </div>
             </div>
 
-            {/* Highlight Card */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-indigo-600/10 to-purple-600/10 border border-indigo-500/20">
-              <h3 className="text-white font-medium mb-2">Core Strengths</h3>
+            <div className="border border-stone-200 bg-[#faf8f4] p-6">
+              <h3 className="mb-4 font-medium text-stone-900">Strengths</h3>
               <ul className="space-y-2">
                 {[
                   "Mathematical Programming (MIP / LP)",
@@ -125,8 +104,11 @@ export default function Skills() {
                   "Data Analysis & Statistical Modeling",
                   "Research & Academic Writing",
                 ].map((strength) => (
-                  <li key={strength} className="flex items-center gap-2 text-gray-400 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                  <li
+                    key={strength}
+                    className="flex items-start gap-2 text-sm text-stone-600"
+                  >
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-stone-400" />
                     {strength}
                   </li>
                 ))}
