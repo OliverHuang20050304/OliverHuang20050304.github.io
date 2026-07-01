@@ -2,28 +2,28 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
-      <Navbar />
-      <Hero />
-      <div className="relative border-t border-stone-200/80">
-        <About />
+    <>
+      <ThemeToggle />
+      <div className="container">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Experience />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
       </div>
-      <div className="relative border-t border-stone-200/80">
-        <Projects />
-      </div>
-      <div className="relative border-t border-stone-200/80">
-        <Skills />
-      </div>
-      <div className="relative border-t border-stone-200/80">
-        <Contact />
-      </div>
-      <Footer />
-    </main>
+    </>
   );
 }

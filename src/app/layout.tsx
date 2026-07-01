@@ -1,19 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-hanken",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#f6f3ec",
+  themeColor: "#faf8f4",
 };
 
 export const metadata: Metadata = {
@@ -35,10 +31,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} ${newsreader.variable} font-sans antialiased`}
-      >
+    <html lang="en">
+      <body className={hanken.variable}>
+        {/* Apply saved theme before paint (body exists here) — no flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark')}catch(e){}`,
+          }}
+        />
         {children}
       </body>
     </html>

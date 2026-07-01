@@ -7,7 +7,8 @@ export const personalInfo = {
   email: "oliver20050304@gmail.com",
   location: "Taipei, Taiwan",
   phone: "+886-939-966-954",
-  github: "https://github.com/oliver20050304",
+  github: "https://github.com/OliverHuang20050304",
+  linkedin: "https://www.linkedin.com/in/oliver-huang-047767331/",
   bio: "A passionate Information Management student at NTU with a strong foundation in optimization, data science, and software engineering. I enjoy solving complex real-world problems through mathematical modeling and algorithmic thinking.",
 };
 
@@ -17,7 +18,7 @@ export const education = [
     degree: "Bachelor of Science in Information Management",
     period: "Sep. 2023 – June 2027",
     location: "Taipei, Taiwan",
-    gpa: "3.98 / 4.30 (Junior Fall) · 3.96 / 4.30 (Sophomore)",
+    gpa: "4.03 / 4.30 (Junior) · 3.96 / 4.30 (Sophomore)",
     courses: [
       "Programming Design",
       "Data Structure and Algorithm",
@@ -28,7 +29,39 @@ export const education = [
       "Linear Algebra",
       "Statistics",
     ],
-    highlight: "Top of the class in Statistics",
+    highlight:
+      "A+ in Computer Networking (top 13% of class) · Top of the class in Statistics",
+  },
+];
+
+export const experience = [
+  {
+    org: "Taiwan Academy of Banking and Finance",
+    role: "AI Intern",
+    period: "Jun. 2026 – Aug. 2026",
+    location: "Taipei, Taiwan",
+    bullets: [
+      "Developed an AI chatbot for financial exam preparation using Retrieval-Augmented Generation (RAG).",
+      "Built and optimized document retrieval pipelines to improve the chatbot's ability to answer finance-related questions.",
+      "Processed financial exam materials and knowledge sources to support accurate and context-aware responses.",
+    ],
+  },
+  {
+    org: "NTU AI Club",
+    role: "Technical Department · Teaching Team Member",
+    period: "July 2026 – Feb. 2027",
+    location: "Taipei, Taiwan",
+    bullets: [],
+  },
+  {
+    org: "NTU Mystery Club",
+    role: "Visual Design Officer",
+    period: "Mar. 2025 – Present",
+    location: "Taipei, Taiwan",
+    bullets: [
+      "Designed promotional materials including social media content to enhance club visibility.",
+      "Managed and maintained the club's public image through consistent visual branding.",
+    ],
   },
 ];
 
@@ -118,11 +151,13 @@ export const projects = [
 
 export const skills = {
   programming: [
-    { name: "Python", level: 90 },
     { name: "C++", level: 70 },
+    { name: "Python", level: 90 },
     { name: "SQL", level: 75 },
+    { name: "Java", level: 60 },
   ],
-  tools: ["Git", "GitHub", "Notion", "Markdown", "HackMD"],
+  tools: ["Git", "GitHub", "GitLab", "Notion", "Markdown", "HackMD"],
+  aiTools: ["Codex", "Claude Code"],
   packages: ["NumPy", "Pandas", "Gurobi"],
   languages: [
     { lang: "Mandarin", level: "Native", flag: "🇹🇼" },
