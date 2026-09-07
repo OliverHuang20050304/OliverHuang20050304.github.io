@@ -47,6 +47,15 @@ export const experience = [
     ],
   },
   {
+    org: "Department of Information Management, National Taiwan University",
+    role: "Teaching Assistant · Programming Design (First-Year Core Course)",
+    period: "Aug. 2026 – Dec. 2026",
+    location: "Taipei, Taiwan",
+    bullets: [
+      "Supported more than 60 first-year students with little to no prior programming experience in building foundational C++ programming and problem-solving skills.",
+    ],
+  },
+  {
     org: "NTU AI Club",
     role: "Technical Department · Teaching Team Member",
     period: "July 2026 – Feb. 2027",
