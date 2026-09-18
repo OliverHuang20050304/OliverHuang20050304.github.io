@@ -1,17 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
+import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400", "600", "700", "900"],
   variable: "--font-cinzel",
-});
-
-const cinzelDecorative = Cinzel_Decorative({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  variable: "--font-cinzel-deco",
 });
 
 const cormorant = Cormorant_Garamond({
@@ -22,7 +16,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#f4ead6",
+  themeColor: "#f6f0e2",
 };
 
 export const metadata: Metadata = {
@@ -45,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cinzel.variable} ${cinzelDecorative.variable} ${cormorant.variable}`}>
+      <body className={`${cinzel.variable} ${cormorant.variable}`}>
         {/* Apply saved theme before paint (body exists here) — no flash. */}
         <script
           dangerouslySetInnerHTML={{
