@@ -6,14 +6,12 @@ import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
-import FontSizeControl from "@/components/FontSizeControl";
+import Controls from "@/components/Controls";
 
 export default function Home() {
   return (
     <>
-      <ThemeToggle />
-      <FontSizeControl />
+      <Controls />
       <div className="container">
         <Navbar />
         <main>

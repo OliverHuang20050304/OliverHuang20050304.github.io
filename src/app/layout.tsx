@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Cormorant_Garamond } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -13,6 +13,12 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
+});
+
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-hanken",
 });
 
 export const viewport: Viewport = {
@@ -39,11 +45,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cinzel.variable} ${cormorant.variable}`}>
+      <body className={`${cinzel.variable} ${cormorant.variable} ${hanken.variable}`}>
         {/* Apply saved theme before paint (body exists here) — no flash. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark');var f=parseFloat(localStorage.getItem('fontScale'));if(f>0)document.documentElement.style.setProperty('--font-scale',f)}catch(e){}`,
+            __html: `try{if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark');var f=parseFloat(localStorage.getItem('fontScale'));if(f>0)document.documentElement.style.setProperty('--font-scale',f);if(localStorage.getItem('style')==='modern')document.body.classList.add('theme-modern')}catch(e){}`,
           }}
         />
         {children}

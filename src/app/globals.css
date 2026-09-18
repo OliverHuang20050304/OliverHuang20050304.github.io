@@ -81,7 +81,8 @@ main {
 
 /* Nav -------------------------------------------------------------- */
 header {
-  padding: 2.25rem 0 1rem;
+  /* top padding clears the fixed controls cluster */
+  padding: 3.75rem 0 1rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid var(--rule);
 }
@@ -458,12 +459,59 @@ footer p {
   padding-top: 1.5rem;
 }
 
-/* Text-size control ------------------------------------------------ */
-.font-control {
+/* Fixed top-right controls: style · text size · dark mode ----------- */
+.controls {
   position: fixed;
   top: 20px;
-  right: 72px;
+  right: 20px;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Style switch ----------------------------------------------------- */
+.style-switch {
+  display: flex;
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.style-switch button {
+  font-family: var(--font-cinzel), serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-right: 1px solid var(--rule);
+  padding: 0 10px;
+  height: 20px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.style-switch button:last-child {
+  border-right: none;
+}
+
+.style-switch button:hover {
+  color: var(--accent);
+}
+
+.style-switch button[aria-pressed="true"] {
+  color: var(--bg);
+  background: var(--accent);
+  cursor: default;
+}
+
+/* Text-size control ------------------------------------------------ */
+.font-control {
   display: flex;
   border: 1px solid var(--rule);
   border-radius: 20px;
@@ -510,9 +558,7 @@ footer p {
 
 /* Dark-mode toggle ------------------------------------------------- */
 .toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: relative;
   display: inline-block;
   width: 36px;
   height: 20px;
@@ -620,7 +666,257 @@ body.dark.party {
   .container { padding: 0 1.25rem; }
   .nav-links { gap: 1rem; }
   .nav-links a { font-size: 0.68rem; letter-spacing: 0.1em; }
-  header { padding-top: 3.5rem; }
-  .toggle { top: 14px; right: 14px; }
-  .font-control { top: 14px; right: 66px; }
+  header { padding-top: 3.25rem; }
+  .controls { top: 12px; right: 12px; gap: 8px; }
+  .style-switch button { padding: 0 8px; }
+}
+
+
+/* ================================================================== *
+ * "Modern" style — the original warm-humanist look (Hanken Grotesk,   *
+ * clay accent). Toggled by StyleSwitch via body.theme-modern.         *
+ * ================================================================== */
+
+body.theme-modern {
+  --bg:        #faf8f4;   /* warm paper */
+  --text:      #211f1c;   /* warm near-black */
+  --muted:     #6b665f;
+  --faint:     #9a938a;
+  --accent:    #b4502a;   /* warm clay */
+  --accent-hi: #8f3d1f;
+  --gold:      #b4502a;
+  --rule:      #e6e0d6;
+  --measure:   48rem;
+  font-family: var(--font-hanken), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;   /* 17px at scale 1 */
+  line-height: 1.65;
+  font-feature-settings: "ss01", "cv05";
+}
+
+body.theme-modern.dark {
+  --bg:        #1a1916;
+  --text:      #e7e2d9;
+  --muted:     #a39c91;
+  --faint:     #726b61;
+  --accent:    #e0915f;
+  --accent-hi: #efad81;
+  --gold:      #e0915f;
+  --rule:      #322e29;
+}
+
+body.theme-modern a {
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+body.theme-modern header {
+  padding: 3.5rem 0 0;
+  border-bottom: none;
+}
+
+body.theme-modern .logo,
+body.theme-modern .nav-links a,
+body.theme-modern h1,
+body.theme-modern h3,
+body.theme-modern .section-title,
+body.theme-modern .exp-date,
+body.theme-modern .inline-group h3,
+body.theme-modern .post-title,
+body.theme-modern .post-body h2,
+body.theme-modern footer,
+body.theme-modern .style-switch button,
+body.theme-modern .font-control button {
+  font-family: var(--font-hanken), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.theme-modern .logo {
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+body.theme-modern .nav-links a {
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  padding-bottom: 2px;
+  border-bottom-width: 1.5px;
+}
+
+body.theme-modern h1 {
+  font-size: 2rem;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.4rem;
+}
+
+body.theme-modern .section-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+body.theme-modern h3 {
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+body.theme-modern .subtitle {
+  font-size: 1.05rem;
+  font-style: normal;
+  margin-bottom: 1.5rem;
+}
+
+body.theme-modern .bio-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 0.9rem;
+}
+
+body.theme-modern #top .bio-text::first-letter,
+body.theme-modern .post-body > p:first-of-type::first-letter {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  float: none;
+  line-height: inherit;
+  margin: 0;
+  color: inherit;
+}
+
+body.theme-modern .links {
+  font-size: 0.95rem;
+}
+
+body.theme-modern .callout {
+  font-size: 0.95rem;
+  font-style: normal;
+  padding: 0.75rem 1rem;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 4px 4px 0;
+}
+
+body.theme-modern .experience-item,
+body.theme-modern .post-item {
+  padding-left: 1.1rem;
+  border-left-width: 2px;
+}
+
+body.theme-modern .experience-item {
+  margin-bottom: 1.6rem;
+}
+
+body.theme-modern .exp-date {
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+body.theme-modern .exp-org {
+  font-size: 0.92rem;
+  font-style: normal;
+  margin: 0.05rem 0 0.35rem;
+}
+
+body.theme-modern .exp-details,
+body.theme-modern .inline-list {
+  font-size: 0.97rem;
+}
+
+body.theme-modern .exp-details li {
+  padding-left: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+body.theme-modern .inline-group h3 {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+body.theme-modern .post-title {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+body.theme-modern .post-desc {
+  font-size: 0.95rem;
+  font-style: normal;
+  margin-top: 0.2rem;
+}
+
+body.theme-modern .post h1 {
+  padding-bottom: 0;
+  border-bottom: none;
+  margin-bottom: 2rem;
+}
+
+body.theme-modern .post-body {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+body.theme-modern .post-body h2 {
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  margin: 2rem 0 0.75rem;
+}
+
+body.theme-modern .post-body h3 {
+  font-size: 1.1rem;
+}
+
+body.theme-modern .post-body blockquote {
+  font-size: 1rem;
+}
+
+body.theme-modern .post-body pre,
+body.theme-modern .post-body img {
+  border-radius: 6px;
+}
+
+body.theme-modern .post-body img {
+  border: none;
+}
+
+body.theme-modern footer {
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+body.theme-modern .style-switch button {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 12px;
+}
+
+body.theme-modern .font-control button {
+  font-weight: 600;
+}
+
+/* Party colours for the modern palette */
+body.theme-modern.party h1,
+body.theme-modern.party h3,
+body.theme-modern.party .section-title,
+body.theme-modern.party a,
+body.theme-modern.party .exp-date {
+  animation-name: rainbowModern;
+}
+
+@keyframes rainbowModern {
+  0%   { color: #ff6b6b; }
+  20%  { color: #ffa94d; }
+  40%  { color: #51cf66; }
+  60%  { color: #339af0; }
+  80%  { color: #cc5de8; }
+  100% { color: #ff6b6b; }
+}
+
+@media (max-width: 640px) {
+  body.theme-modern { font-size: 1.0625rem; }
+  body.theme-modern h1 { font-size: 1.7rem; }
 }
