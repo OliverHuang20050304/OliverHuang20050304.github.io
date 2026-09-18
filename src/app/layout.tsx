@@ -1,15 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Hanken_Grotesk } from "next/font/google";
+import { Cinzel, Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
-const hanken = Hanken_Grotesk({
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+  variable: "--font-cinzel",
+});
+
+const cinzelDecorative = Cinzel_Decorative({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-cinzel-deco",
+});
+
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-hanken",
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#faf8f4",
+  themeColor: "#f4ead6",
 };
 
 export const metadata: Metadata = {
@@ -32,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={hanken.variable}>
+      <body className={`${cinzel.variable} ${cinzelDecorative.variable} ${cormorant.variable}`}>
         {/* Apply saved theme before paint (body exists here) — no flash. */}
         <script
           dangerouslySetInnerHTML={{
