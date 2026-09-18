@@ -1,30 +1,28 @@
 /* ------------------------------------------------------------------ *
- * Classic academic theme — parchment, old-style serif, one burgundy.  *
- * Toned-down sibling of the `baroque` branch: same type, no gilt.     *
- * Edit the variables below to retune everything.                      *
+ * Warm humanist theme (default, "Modern"). Edit the variables below   *
+ * to retune everything. The "Classic" serif style is an opt-in        *
+ * override block at the bottom, toggled via body.theme-classic.       *
  * ------------------------------------------------------------------ */
 
 :root {
-  --bg:        #f6f0e2;   /* soft parchment */
-  --text:      #2b1f16;   /* walnut ink */
-  --muted:     #6d5a48;   /* faded sepia */
-  --faint:     #a08c74;   /* dates, separators */
-  --accent:    #8f1d2c;   /* burgundy */
-  --accent-hi: #b8322f;   /* burgundy hover */
-  --gold:      #a8893f;   /* muted old gold, used sparingly */
-  --rule:      #dccdb0;   /* hairlines */
-  --measure:   46rem;     /* content width */
+  --bg:        #faf8f4;   /* warm paper */
+  --text:      #211f1c;   /* warm near-black */
+  --muted:     #6b665f;   /* secondary text */
+  --faint:     #9a938a;   /* dates, separators */
+  --accent:    #b4502a;   /* warm clay */
+  --accent-hi: #8f3d1f;   /* link hover */
+  --rule:      #e6e0d6;   /* hairlines */
+  --measure:   48rem;     /* content width */
 }
 
 body.dark {
-  --bg:        #17120f;
-  --text:      #ebe1cc;
-  --muted:     #b9a68a;
-  --faint:     #7d6b55;
-  --accent:    #d9a94e;
-  --accent-hi: #efc978;
-  --gold:      #b8963f;
-  --rule:      #3a3027;
+  --bg:        #1a1916;
+  --text:      #e7e2d9;
+  --muted:     #a39c91;
+  --faint:     #726b61;
+  --accent:    #e0915f;
+  --accent-hi: #efad81;
+  --rule:      #322e29;
 }
 
 * {
@@ -44,9 +42,10 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-cormorant), "Noto Serif TC", "Songti TC", "PingFang TC", Georgia, serif;
-  font-size: 1.25rem;   /* 20px at scale 1 */
-  line-height: 1.6;
+  font-family: var(--font-hanken), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;   /* 17px at scale 1 */
+  line-height: 1.65;
+  font-feature-settings: "ss01", "cv05";
   -webkit-font-smoothing: antialiased;
   transition: background 0.25s ease, color 0.25s ease;
 }
@@ -54,9 +53,9 @@ body {
 a {
   color: var(--accent);
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 2px;
   text-decoration-thickness: 1px;
-  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
@@ -81,10 +80,8 @@ main {
 
 /* Nav -------------------------------------------------------------- */
 header {
-  /* top padding clears the fixed controls cluster */
-  padding: 3.75rem 0 1rem;
+  padding: 3.5rem 0 0;   /* top padding clears the fixed controls cluster */
   margin-bottom: 3rem;
-  border-bottom: 1px solid var(--rule);
 }
 
 nav {
@@ -96,10 +93,9 @@ nav {
 }
 
 .logo {
-  font-family: var(--font-cinzel), serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1rem;
-  letter-spacing: 0.1em;
+  letter-spacing: -0.01em;
   color: var(--text);
   text-decoration: none;
 }
@@ -110,16 +106,11 @@ nav {
 }
 
 .nav-links a {
-  font-family: var(--font-cinzel), serif;
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 0.92rem;
   color: var(--muted);
   text-decoration: none;
-  padding-bottom: 3px;
-  border-bottom: 1px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
 }
 
 .nav-links a:hover,
@@ -130,86 +121,66 @@ nav {
 
 /* Headings --------------------------------------------------------- */
 h1 {
-  font-family: var(--font-cinzel), serif;
-  font-size: 2.3rem;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.025em;
   line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .section-title {
-  font-family: var(--font-cinzel), serif;
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.4rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  margin-bottom: 1.25rem;
 }
 
 h3 {
-  font-family: var(--font-cinzel), serif;
-  font-size: 1.02rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .subtitle {
   color: var(--muted);
-  font-size: 1.15rem;
-  font-style: italic;
-  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
 }
 
 section {
-  margin-bottom: 3.25rem;
+  margin-bottom: 3rem;
 }
 
 .bio-text {
   color: var(--text);
-  font-size: 1.15rem;
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-/* Small-caps drop cap on the hero bio — the one flourish we keep. */
-#top .bio-text::first-letter {
-  font-family: var(--font-cinzel), serif;
-  font-size: 3em;
-  font-weight: 700;
-  float: left;
-  line-height: 0.82;
-  margin: 0.06em 0.12em 0 0;
-  color: var(--accent);
+  font-size: 1.05rem;
+  margin-bottom: 0.9rem;
 }
 
 .links {
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-top: 1.25rem;
 }
 
-/* Callout (open to work) — burgundy left rule ---------------------- */
+/* Callout (open to work) — clay left rule ------------------------- */
 .callout {
-  font-size: 1rem;
-  font-style: italic;
+  font-size: 0.95rem;
   color: var(--muted);
   margin: 1.5rem 0;
-  padding: 0.75rem 1.1rem;
+  padding: 0.75rem 1rem;
   border-left: 2px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 4px 4px 0;
 }
 
-/* Experience / projects — narrative, hairline-framed ---------------- */
+/* Experience / projects — narrative, not a resume grid ------------- */
 .experience-item {
-  margin-bottom: 1.75rem;
-  padding-left: 1.2rem;
-  border-left: 1px solid var(--rule);
+  margin-bottom: 1.6rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--rule);
   transition: border-color 0.2s ease;
 }
 
@@ -225,37 +196,34 @@ section {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.35rem 0.7rem;
+  gap: 0.35rem 0.6rem;
 }
 
 .exp-date {
-  font-family: var(--font-cinzel), serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
   color: var(--faint);
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
 }
 
 .exp-org {
-  font-size: 1.02rem;
-  font-style: italic;
+  font-size: 0.92rem;
   color: var(--muted);
-  margin: 0.1rem 0 0.45rem;
+  margin: 0.05rem 0 0.35rem;
 }
 
 .exp-details {
   list-style: none;
   padding-left: 0;
   color: var(--text);
-  font-size: 1.04rem;
+  font-size: 0.97rem;
   margin: 0.5rem 0;
 }
 
 .exp-details li {
   position: relative;
-  padding-left: 1.1rem;
-  margin-bottom: 0.3rem;
+  padding-left: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .exp-details li::before {
@@ -267,15 +235,16 @@ section {
 
 /* Inline prose lists (skills, tags, coursework) ------------------- */
 .inline-group {
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.1rem;
 }
 
 .inline-group h3 {
   margin-bottom: 0.45rem;
   color: var(--muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  font-size: 0.82rem;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .inline-list {
@@ -284,36 +253,36 @@ section {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15rem 0.6rem;
+  gap: 0.15rem 0.55rem;
   color: var(--text);
-  font-size: 1.04rem;
+  font-size: 0.97rem;
 }
 
 .inline-list li:not(:last-child)::after {
   content: "·";
-  margin-left: 0.6rem;
+  margin-left: 0.55rem;
   color: var(--faint);
 }
 
 .interests-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 1.1rem;
 }
 
 /* Blog list -------------------------------------------------------- */
 .post-list {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.6rem;
   margin-top: 2rem;
 }
 
 .post-item {
   display: block;
   text-decoration: none;
-  padding-left: 1.2rem;
-  border-left: 1px solid var(--rule);
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--rule);
   transition: border-color 0.2s ease;
 }
 
@@ -323,79 +292,58 @@ section {
 
 .post-item .exp-date {
   display: block;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
 }
 
 .post-title {
   display: block;
-  font-family: var(--font-cinzel), serif;
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 .post-desc {
   display: block;
   color: var(--muted);
-  font-size: 1.02rem;
-  font-style: italic;
-  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
 }
 
 /* Blog article ----------------------------------------------------- */
 .post .exp-date {
   display: block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .post h1 {
-  margin-bottom: 0.75rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.post h1 + .post-body,
-.post-body {
-  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .post-body {
   color: var(--text);
-  font-size: 1.1rem;
-}
-
-.post-body > p:first-of-type::first-letter {
-  font-family: var(--font-cinzel), serif;
-  font-size: 3.2em;
-  font-weight: 700;
-  float: left;
-  line-height: 0.82;
-  margin: 0.06em 0.14em 0 0;
-  color: var(--accent);
 }
 
 .post-body p {
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.1rem;
 }
 
 .post-body h2 {
-  font-family: var(--font-cinzel), serif;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  margin: 2.4rem 0 0.8rem;
+  letter-spacing: -0.02em;
+  margin: 2rem 0 0.75rem;
 }
 
 .post-body h3 {
-  font-size: 1.12rem;
-  margin: 1.9rem 0 0.6rem;
+  font-size: 1.1rem;
+  margin: 1.75rem 0 0.6rem;
 }
 
 .post-body ul,
 .post-body ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.15rem;
+  padding-left: 1.4rem;
+  margin-bottom: 1.1rem;
 }
 
 .post-body li {
@@ -404,19 +352,19 @@ section {
 
 .post-body code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.82em;
-  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  font-size: 0.88em;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
   padding: 0.1rem 0.35rem;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .post-body pre {
-  background: color-mix(in srgb, var(--text) 4%, transparent);
+  background: color-mix(in srgb, var(--text) 5%, transparent);
   border: 1px solid var(--rule);
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 1rem 1.1rem;
   overflow-x: auto;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.1rem;
 }
 
 .post-body pre code {
@@ -428,29 +376,23 @@ section {
 
 .post-body blockquote {
   border-left: 2px solid var(--accent);
-  padding-left: 1.1rem;
+  padding-left: 1rem;
   color: var(--muted);
   font-style: italic;
-  font-size: 1.12rem;
-  margin: 1.5rem 0;
+  margin: 1.25rem 0;
 }
 
 .post-body img {
   max-width: 100%;
   height: auto;
-  border: 1px solid var(--rule);
-  display: block;
-  margin: 1.5rem auto;
+  border-radius: 6px;
 }
 
 /* Footer ----------------------------------------------------------- */
 footer {
   padding: 2.5rem 0;
   color: var(--faint);
-  font-family: var(--font-cinzel), serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
   margin-top: auto;
 }
 
@@ -471,7 +413,8 @@ footer p {
 }
 
 /* Style switch ----------------------------------------------------- */
-.style-switch {
+.style-switch,
+.font-control {
   display: flex;
   border: 1px solid var(--rule);
   border-radius: 20px;
@@ -479,12 +422,12 @@ footer p {
   overflow: hidden;
 }
 
-.style-switch button {
-  font-family: var(--font-cinzel), serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.style-switch button,
+.font-control button {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   line-height: 1;
   color: var(--muted);
   background: none;
@@ -496,11 +439,13 @@ footer p {
   transition: color 0.15s ease, background 0.15s ease;
 }
 
-.style-switch button:last-child {
+.style-switch button:last-child,
+.font-control button:last-child {
   border-right: none;
 }
 
-.style-switch button:hover {
+.style-switch button:hover,
+.font-control button:hover:not(:disabled) {
   color: var(--accent);
 }
 
@@ -511,35 +456,12 @@ footer p {
 }
 
 /* Text-size control ------------------------------------------------ */
-.font-control {
-  display: flex;
-  border: 1px solid var(--rule);
-  border-radius: 20px;
-  background: var(--bg);
-  overflow: hidden;
-}
-
 .font-control button {
-  font-family: var(--font-cinzel), serif;
   font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--muted);
-  background: none;
-  border: none;
-  border-right: 1px solid var(--rule);
   padding: 0 9px;
-  height: 20px;
-  cursor: pointer;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
-.font-control button:last-child {
-  border-right: none;
 }
 
 .font-control button:hover:not(:disabled) {
-  color: var(--accent);
   background: color-mix(in srgb, var(--accent) 6%, transparent);
 }
 
@@ -562,7 +484,6 @@ footer p {
   display: inline-block;
   width: 36px;
   height: 20px;
-  z-index: 10;
 }
 
 .toggle input {
@@ -602,6 +523,7 @@ footer p {
 .party-link {
   color: var(--faint);
   text-decoration: none;
+  font-size: 0.82rem;
   cursor: pointer;
 }
 
@@ -631,283 +553,6 @@ body.party .exp-date {
 }
 
 @keyframes rainbow {
-  0%   { color: #b8322f; }
-  25%  { color: #a8893f; }
-  50%  { color: #2f5a8a; }
-  75%  { color: #5e2a6b; }
-  100% { color: #b8322f; }
-}
-
-@keyframes bgCycle {
-  0%   { background: #f6f0e2; }
-  25%  { background: #efe3dc; }
-  50%  { background: #e4e8ee; }
-  75%  { background: #ebe3f0; }
-  100% { background: #f6f0e2; }
-}
-
-body.dark.party {
-  animation-name: bgCycleDark;
-}
-
-@keyframes bgCycleDark {
-  0%   { background: #17120f; }
-  25%  { background: #2a1416; }
-  50%  { background: #12182a; }
-  75%  { background: #22122a; }
-  100% { background: #17120f; }
-}
-
-/* Mobile ----------------------------------------------------------- */
-@media (max-width: 640px) {
-  html { font-size: calc(15px * var(--font-scale, 1)); }
-  body { font-size: 1.15rem; }
-  h1 { font-size: 1.8rem; }
-  .container { padding: 0 1.25rem; }
-  .nav-links { gap: 1rem; }
-  .nav-links a { font-size: 0.68rem; letter-spacing: 0.1em; }
-  header { padding-top: 3.25rem; }
-  .controls { top: 12px; right: 12px; gap: 8px; }
-  .style-switch button { padding: 0 8px; }
-}
-
-
-/* ================================================================== *
- * "Modern" style — the original warm-humanist look (Hanken Grotesk,   *
- * clay accent). Toggled by StyleSwitch via body.theme-modern.         *
- * ================================================================== */
-
-body.theme-modern {
-  --bg:        #faf8f4;   /* warm paper */
-  --text:      #211f1c;   /* warm near-black */
-  --muted:     #6b665f;
-  --faint:     #9a938a;
-  --accent:    #b4502a;   /* warm clay */
-  --accent-hi: #8f3d1f;
-  --gold:      #b4502a;
-  --rule:      #e6e0d6;
-  --measure:   48rem;
-  font-family: var(--font-hanken), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.0625rem;   /* 17px at scale 1 */
-  line-height: 1.65;
-  font-feature-settings: "ss01", "cv05";
-}
-
-body.theme-modern.dark {
-  --bg:        #1a1916;
-  --text:      #e7e2d9;
-  --muted:     #a39c91;
-  --faint:     #726b61;
-  --accent:    #e0915f;
-  --accent-hi: #efad81;
-  --gold:      #e0915f;
-  --rule:      #322e29;
-}
-
-body.theme-modern a {
-  text-underline-offset: 2px;
-  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
-}
-
-body.theme-modern header {
-  padding: 3.5rem 0 0;
-  border-bottom: none;
-}
-
-body.theme-modern .logo,
-body.theme-modern .nav-links a,
-body.theme-modern h1,
-body.theme-modern h3,
-body.theme-modern .section-title,
-body.theme-modern .exp-date,
-body.theme-modern .inline-group h3,
-body.theme-modern .post-title,
-body.theme-modern .post-body h2,
-body.theme-modern footer,
-body.theme-modern .style-switch button,
-body.theme-modern .font-control button {
-  font-family: var(--font-hanken), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-body.theme-modern .logo {
-  font-size: 1rem;
-  letter-spacing: -0.01em;
-}
-
-body.theme-modern .nav-links a {
-  font-size: 0.92rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  padding-bottom: 2px;
-  border-bottom-width: 1.5px;
-}
-
-body.theme-modern h1 {
-  font-size: 2rem;
-  letter-spacing: -0.025em;
-  margin-bottom: 0.4rem;
-}
-
-body.theme-modern .section-title {
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  margin-bottom: 1.25rem;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-body.theme-modern h3 {
-  font-size: 1rem;
-  letter-spacing: -0.01em;
-}
-
-body.theme-modern .subtitle {
-  font-size: 1.05rem;
-  font-style: normal;
-  margin-bottom: 1.5rem;
-}
-
-body.theme-modern .bio-text {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  margin-bottom: 0.9rem;
-}
-
-body.theme-modern #top .bio-text::first-letter,
-body.theme-modern .post-body > p:first-of-type::first-letter {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  float: none;
-  line-height: inherit;
-  margin: 0;
-  color: inherit;
-}
-
-body.theme-modern .links {
-  font-size: 0.95rem;
-}
-
-body.theme-modern .callout {
-  font-size: 0.95rem;
-  font-style: normal;
-  padding: 0.75rem 1rem;
-  background: color-mix(in srgb, var(--accent) 6%, transparent);
-  border-radius: 0 4px 4px 0;
-}
-
-body.theme-modern .experience-item,
-body.theme-modern .post-item {
-  padding-left: 1.1rem;
-  border-left-width: 2px;
-}
-
-body.theme-modern .experience-item {
-  margin-bottom: 1.6rem;
-}
-
-body.theme-modern .exp-date {
-  font-size: 0.82rem;
-  letter-spacing: 0.01em;
-  text-transform: none;
-}
-
-body.theme-modern .exp-org {
-  font-size: 0.92rem;
-  font-style: normal;
-  margin: 0.05rem 0 0.35rem;
-}
-
-body.theme-modern .exp-details,
-body.theme-modern .inline-list {
-  font-size: 0.97rem;
-}
-
-body.theme-modern .exp-details li {
-  padding-left: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-body.theme-modern .inline-group h3 {
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-}
-
-body.theme-modern .post-title {
-  font-size: 1.1rem;
-  letter-spacing: -0.01em;
-}
-
-body.theme-modern .post-desc {
-  font-size: 0.95rem;
-  font-style: normal;
-  margin-top: 0.2rem;
-}
-
-body.theme-modern .post h1 {
-  padding-bottom: 0;
-  border-bottom: none;
-  margin-bottom: 2rem;
-}
-
-body.theme-modern .post-body {
-  font-size: 1rem;
-  margin-top: 0;
-}
-
-body.theme-modern .post-body h2 {
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-  margin: 2rem 0 0.75rem;
-}
-
-body.theme-modern .post-body h3 {
-  font-size: 1.1rem;
-}
-
-body.theme-modern .post-body blockquote {
-  font-size: 1rem;
-}
-
-body.theme-modern .post-body pre,
-body.theme-modern .post-body img {
-  border-radius: 6px;
-}
-
-body.theme-modern .post-body img {
-  border: none;
-}
-
-body.theme-modern footer {
-  font-size: 0.82rem;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-body.theme-modern .style-switch button {
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  font-size: 12px;
-}
-
-body.theme-modern .font-control button {
-  font-weight: 600;
-}
-
-/* Party colours for the modern palette */
-body.theme-modern.party h1,
-body.theme-modern.party h3,
-body.theme-modern.party .section-title,
-body.theme-modern.party a,
-body.theme-modern.party .exp-date {
-  animation-name: rainbowModern;
-}
-
-@keyframes rainbowModern {
   0%   { color: #ff6b6b; }
   20%  { color: #ffa94d; }
   40%  { color: #51cf66; }
@@ -916,7 +561,332 @@ body.theme-modern.party .exp-date {
   100% { color: #ff6b6b; }
 }
 
+@keyframes bgCycle {
+  0%   { background: #fff5f5; }
+  25%  { background: #f3ffe3; }
+  50%  { background: #e7f5ff; }
+  75%  { background: #faf4ff; }
+  100% { background: #fff5f5; }
+}
+
+body.dark.party {
+  animation-name: bgCycleDark;
+}
+
+@keyframes bgCycleDark {
+  0%   { background: #2a1a1a; }
+  25%  { background: #1a2a1a; }
+  50%  { background: #1a1a2a; }
+  75%  { background: #2a1a2a; }
+  100% { background: #2a1a1a; }
+}
+
+/* Mobile ----------------------------------------------------------- */
 @media (max-width: 640px) {
-  body.theme-modern { font-size: 1.0625rem; }
-  body.theme-modern h1 { font-size: 1.7rem; }
+  html { font-size: calc(15px * var(--font-scale, 1)); }
+  h1 { font-size: 1.7rem; }
+  .container { padding: 0 1.25rem; }
+  header { padding-top: 3.25rem; }
+  .controls { top: 12px; right: 12px; gap: 8px; }
+  .style-switch button { padding: 0 8px; }
+}
+
+
+/* ================================================================== *
+ * "Classic" style — old-style serif on parchment (Cinzel / Cormorant   *
+ * Garamond, burgundy). Opt-in via StyleSwitch → body.theme-classic.   *
+ * ================================================================== */
+
+body.theme-classic {
+  --bg:        #f6f0e2;   /* soft parchment */
+  --text:      #2b1f16;   /* walnut ink */
+  --muted:     #6d5a48;
+  --faint:     #a08c74;
+  --accent:    #8f1d2c;   /* burgundy */
+  --accent-hi: #b8322f;
+  --rule:      #dccdb0;
+  --measure:   46rem;
+  font-family: var(--font-cormorant), "Noto Serif TC", "Songti TC", "PingFang TC", Georgia, serif;
+  font-size: 1.25rem;     /* 20px at scale 1 */
+  line-height: 1.6;
+  font-feature-settings: normal;
+}
+
+body.theme-classic.dark {
+  --bg:        #17120f;
+  --text:      #ebe1cc;
+  --muted:     #b9a68a;
+  --faint:     #7d6b55;
+  --accent:    #d9a94e;
+  --accent-hi: #efc978;
+  --rule:      #3a3027;
+}
+
+body.theme-classic a {
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+body.theme-classic header {
+  padding: 3.75rem 0 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Display face for everything that was sans */
+body.theme-classic .logo,
+body.theme-classic .nav-links a,
+body.theme-classic h1,
+body.theme-classic h3,
+body.theme-classic .section-title,
+body.theme-classic .exp-date,
+body.theme-classic .post-title,
+body.theme-classic .post-body h2,
+body.theme-classic footer,
+body.theme-classic .style-switch button,
+body.theme-classic .font-control button {
+  font-family: var(--font-cinzel), serif;
+}
+
+body.theme-classic .logo {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+body.theme-classic .nav-links a {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 3px;
+  border-bottom-width: 1px;
+}
+
+body.theme-classic h1 {
+  font-size: 2.3rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+}
+
+body.theme-classic .section-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+body.theme-classic h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+body.theme-classic .subtitle {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+}
+
+body.theme-classic section {
+  margin-bottom: 3.25rem;
+}
+
+body.theme-classic .bio-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Drop caps — the one flourish Classic keeps */
+body.theme-classic #top .bio-text::first-letter,
+body.theme-classic .post-body > p:first-of-type::first-letter {
+  font-family: var(--font-cinzel), serif;
+  font-size: 3em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.82;
+  margin: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+
+body.theme-classic .post-body > p:first-of-type::first-letter {
+  font-size: 3.2em;
+  margin-right: 0.14em;
+}
+
+body.theme-classic .links {
+  font-size: 1rem;
+}
+
+body.theme-classic .callout {
+  font-size: 1rem;
+  font-style: italic;
+  padding: 0.75rem 1.1rem;
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  border-radius: 0;
+}
+
+body.theme-classic .experience-item,
+body.theme-classic .post-item {
+  padding-left: 1.2rem;
+  border-left-width: 1px;
+}
+
+body.theme-classic .experience-item {
+  margin-bottom: 1.75rem;
+}
+
+body.theme-classic .exp-header {
+  gap: 0.35rem 0.7rem;
+}
+
+body.theme-classic .exp-date {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.theme-classic .exp-org {
+  font-size: 1.02rem;
+  font-style: italic;
+  margin: 0.1rem 0 0.45rem;
+}
+
+body.theme-classic .exp-details,
+body.theme-classic .inline-list {
+  font-size: 1.04rem;
+}
+
+body.theme-classic .exp-details li {
+  padding-left: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+body.theme-classic .inline-group h3 {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+body.theme-classic .post-list {
+  gap: 1.75rem;
+}
+
+body.theme-classic .post-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+body.theme-classic .post-desc {
+  font-size: 1.02rem;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+body.theme-classic .post h1 {
+  margin-bottom: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+body.theme-classic .post-body {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+body.theme-classic .post-body h2 {
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  margin: 2.4rem 0 0.8rem;
+}
+
+body.theme-classic .post-body h3 {
+  font-size: 1.12rem;
+}
+
+body.theme-classic .post-body code {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  border-radius: 3px;
+}
+
+body.theme-classic .post-body pre {
+  border-radius: 4px;
+}
+
+body.theme-classic .post-body blockquote {
+  font-size: 1.12rem;
+}
+
+body.theme-classic .post-body img {
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+body.theme-classic footer {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.theme-classic .style-switch button {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.theme-classic .font-control button {
+  font-weight: 700;
+}
+
+/* Party colours for the classic palette */
+body.theme-classic.party h1,
+body.theme-classic.party h3,
+body.theme-classic.party .section-title,
+body.theme-classic.party a,
+body.theme-classic.party .exp-date {
+  animation-name: rainbowClassic;
+}
+
+body.theme-classic.party {
+  animation-name: bgCycleClassic;
+}
+
+body.theme-classic.dark.party {
+  animation-name: bgCycleClassicDark;
+}
+
+@keyframes rainbowClassic {
+  0%   { color: #b8322f; }
+  25%  { color: #a8893f; }
+  50%  { color: #2f5a8a; }
+  75%  { color: #5e2a6b; }
+  100% { color: #b8322f; }
+}
+
+@keyframes bgCycleClassic {
+  0%   { background: #f6f0e2; }
+  25%  { background: #efe3dc; }
+  50%  { background: #e4e8ee; }
+  75%  { background: #ebe3f0; }
+  100% { background: #f6f0e2; }
+}
+
+@keyframes bgCycleClassicDark {
+  0%   { background: #17120f; }
+  25%  { background: #2a1416; }
+  50%  { background: #12182a; }
+  75%  { background: #22122a; }
+  100% { background: #17120f; }
+}
+
+@media (max-width: 640px) {
+  body.theme-classic { font-size: 1.15rem; }
+  body.theme-classic h1 { font-size: 1.8rem; }
+  body.theme-classic .nav-links { gap: 1rem; }
+  body.theme-classic .nav-links a { font-size: 0.68rem; letter-spacing: 0.1em; }
 }

@@ -22,7 +22,7 @@ const hanken = Hanken_Grotesk({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#f6f0e2",
+  themeColor: "#faf8f4",
 };
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default function RootLayout({
         {/* Apply saved theme before paint (body exists here) — no flash. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark');var f=parseFloat(localStorage.getItem('fontScale'));if(f>0)document.documentElement.style.setProperty('--font-scale',f);if(localStorage.getItem('style')==='modern')document.body.classList.add('theme-modern')}catch(e){}`,
+            __html: `try{if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark');var f=parseFloat(localStorage.getItem('fontScale'));if(f>0)document.documentElement.style.setProperty('--font-scale',f);if(localStorage.getItem('style')==='classic')document.body.classList.add('theme-classic')}catch(e){}`,
           }}
         />
         {children}
