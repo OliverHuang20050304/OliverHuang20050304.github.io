@@ -1,0 +1,66 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+// Text scale steps. Index 1 (1.0) is the default; matches the pre-paint
+// script in layout.tsx which applies the saved value before first render.
+const STEPS = [0.9, 1, 1.12, 1.25, 1.4];
+const DEFAULT = 1;
+
+function apply(scale: number) {
+  document.documentElement.style.setProperty("--font-scale", String(scale));
+}
+
+export default function FontSizeControl() {
+  const [idx, setIdx] = useState(DEFAULT);
+
+  // Sync with whatever the pre-paint script already applied.
+  useEffect(() => {
+    try {
+      const saved = parseFloat(localStorage.getItem("fontScale") ?? "");
+      const i = STEPS.indexOf(saved);
+      if (i !== -1) setIdx(i);
+    } catch {}
+  }, []);
+
+  const set = (i: number) => {
+    const clamped = Math.max(0, Math.min(STEPS.length - 1, i));
+    setIdx(clamped);
+    apply(STEPS[clamped]);
+    try {
+      localStorage.setItem("fontScale", String(STEPS[clamped]));
+    } catch {}
+  };
+
+  return (
+    <div className="font-control" role="group" aria-label="Text size">
+      <button
+        type="button"
+        onClick={() => set(idx - 1)}
+        disabled={idx === 0}
+        aria-label="Smaller text"
+        title="Smaller text"
+      >
+        A<span className="font-control-minus">−</span>
+      </button>
+      <button
+        type="button"
+        onClick={() => set(DEFAULT)}
+        disabled={idx === DEFAULT}
+        aria-label="Reset text size"
+        title="Reset text size"
+      >
+        A
+      </button>
+      <button
+        type="button"
+        onClick={() => set(idx + 1)}
+        disabled={idx === STEPS.length - 1}
+        aria-label="Larger text"
+        title="Larger text"
+      >
+        A<span className="font-control-plus">+</span>
+      </button>
+    </div>
+  );
+}

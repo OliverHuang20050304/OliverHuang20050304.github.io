@@ -7,11 +7,13 @@ import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
+import FontSizeControl from "@/components/FontSizeControl";
 
 export default function Home() {
   return (
     <>
       <ThemeToggle />
+      <FontSizeControl />
       <div className="container">
         <Navbar />
         <main>

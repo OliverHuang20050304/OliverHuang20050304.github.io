@@ -35,13 +35,17 @@ body.dark {
 
 html {
   scroll-behavior: smooth;
+  /* --font-scale is set by FontSizeControl (and restored pre-paint in
+     layout.tsx). Everything below is in rem, so this one line rescales
+     the whole page like a browser text zoom. */
+  font-size: calc(16px * var(--font-scale, 1));
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-cormorant), "Noto Serif TC", "Songti TC", "PingFang TC", Georgia, serif;
-  font-size: 19px;
+  font-size: 1.25rem;   /* 20px at scale 1 */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background 0.25s ease, color 0.25s ease;
@@ -454,11 +458,61 @@ footer p {
   padding-top: 1.5rem;
 }
 
+/* Text-size control ------------------------------------------------ */
+.font-control {
+  position: fixed;
+  top: 20px;
+  right: 72px;
+  z-index: 10;
+  display: flex;
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.font-control button {
+  font-family: var(--font-cinzel), serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-right: 1px solid var(--rule);
+  padding: 0 9px;
+  height: 20px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.font-control button:last-child {
+  border-right: none;
+}
+
+.font-control button:hover:not(:disabled) {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.font-control button:disabled {
+  color: var(--faint);
+  opacity: 0.55;
+  cursor: default;
+}
+
+.font-control-minus,
+.font-control-plus {
+  font-size: 10px;
+  vertical-align: top;
+  margin-left: 1px;
+}
+
 /* Dark-mode toggle ------------------------------------------------- */
 .toggle {
   position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 20px;
+  right: 20px;
   display: inline-block;
   width: 36px;
   height: 20px;
@@ -560,9 +614,13 @@ body.dark.party {
 
 /* Mobile ----------------------------------------------------------- */
 @media (max-width: 640px) {
-  body { font-size: 17px; }
+  html { font-size: calc(15px * var(--font-scale, 1)); }
+  body { font-size: 1.15rem; }
   h1 { font-size: 1.8rem; }
   .container { padding: 0 1.25rem; }
   .nav-links { gap: 1rem; }
   .nav-links a { font-size: 0.68rem; letter-spacing: 0.1em; }
+  header { padding-top: 3.5rem; }
+  .toggle { top: 14px; right: 14px; }
+  .font-control { top: 14px; right: 66px; }
 }
