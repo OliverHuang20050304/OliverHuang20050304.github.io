@@ -31,6 +31,6 @@ uv 其實我大二就有聽過，但當時不太明白它跟 上一個的區別�
 主要指令如下：
 - 創建環境：uv venv --python 版本，如 uv venv --python 3.12
 - 進入環境：source .venv/bin/activate
-- 安裝套件：uv pip install package_name
+- 安裝套件：uv pip install package_name，或是用 uv add package_name，後者比較推薦，因為這樣重建環境時會比較容易重新安裝依賴
 - 退出環境：deactivate
 
